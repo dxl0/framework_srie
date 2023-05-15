@@ -1,0 +1,55 @@
+
+{% extends "base.html" %}
+{% block title %}SRIE > TP2 - Scanning Networks > See ports of a computer{% endblock %}
+{% block content %}
+
+<div class="container p-5 my-5">
+    <h2 class="text-center">SRIE > TP2 - Scanning Networks > See ports of a computer</h2>
+
+    <div class="container p-5 my-5 border bg-light">
+        <p class="lead">
+            Nmap command is an opensource tool that scans the network. It is able to list the different services of a computer connected to your network. In this page nmap will be used in order to check the different ports of a specified IP.
+        </p>
+    </div>
+
+
+<!-- Command Used section -->
+    <h3 class="mt-5 text-center">Command Used</h3>
+
+    <div class="container p-5 my-5 border bg-light">
+        <p class="lead">The "nmap" tool is used in the command line shell. We will use one option:</p>
+        <code>{% raw %}$ nmap -sS {IP} {% endraw %}</code>
+    </div>
+
+
+
+<!-- Command execution section-->  
+    <h3 class="mt-5 text-center">Command Execution</h3>
+    <div class="container p-5 my-5 border bg-light">
+        <form method="post" action="">
+            {{ content["form"].csrf_token }}
+
+            <div class="form-group mt-2">
+                <label for="{{ content['form'].ip.id }}">{{ content["form"].ip.label.text }}</label>
+                {{ content["form"].ip(class="form-control") }}
+            </div>
+ 
+            <button type="submit" class="btn btn-primary mt-2">Scan the ports</button>
+        </form> 
+    </div>
+
+<!-- Command output section-->  
+    <h3 class="mt-5 text-center">Command Output</h3>
+
+    <div class="container p-5 my-5 border bg-light">
+        <h5 class="mt-5">Command executed:</h5>
+        <code>{{ content["command_executed"] }}</code>
+
+        <h5 class="mt-5">Output from shell:</h5>
+            <pre>{{ content["command_output"] }}</pre>
+    </div>
+
+
+
+{% endblock %}
+

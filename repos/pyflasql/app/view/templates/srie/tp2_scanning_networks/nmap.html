@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block title %}SRIE > TP2 - Scanning Networks > Ping an IP address{% endblock %}
+{% block content %}
+
+<div class="container p-5 my-5">
+    <h2 class="text-center">SRIE > TP2 - Scanning Networks > Ping an IP address</h2>
+
+    <div class="container p-5 my-5 border bg-light">
+        <p class="lead">
+            Nmap command is an opensource tool that scans the network. It is able to list the different services of a computer connected to your network. In this page, nmap will be used in order to enumerate the differents computers connected on the network, based on an IP.
+        </p>
+    </div>
+
+
+<!-- Command Used section -->
+    <h3 class="mt-5 text-center">Command Used</h3>
+
+    <div class="container p-5 my-5 border bg-light">
+        <p class="lead">The "nmap" tool is used in the command line shell. We will use two options:</p>
+        <code>{% raw %}$ nmap -T3 -sn {IP} {% endraw %}</code>
+    </div>
+
+
+
+<!-- Command execution section-->  
+    <h3 class="mt-5 text-center">Command Execution</h3>
+    <div class="container p-5 my-5 border bg-light">
+    <p class="lead">Please put "*" on the octet you want to scan. For example, 192.168.28.* will scan ip adress from 192.168.28.0 to .255</p>
+        <form method="post" action="">
+            {{ content["form"].csrf_token }}
+
+            <div class="form-group mt-2">
+                <label for="{{ content['form'].range_ip.id }}">{{ content["form"].range_ip.label.text }}</label>
+                {{ content["form"].range_ip(class="form-control") }}
+            </div>
+ 
+            <button type="submit" class="btn btn-primary mt-2">Scan the network</button>
+        </form> 
+    </div>
+
+<!-- Command output section-->  
+    <h3 class="mt-5 text-center">Command Output</h3>
+
+    <div class="container p-5 my-5 border bg-light">
+        <h5 class="mt-5">Command executed:</h5>
+        <code>{{ content["command_executed"] }}</code>
+
+        <h5 class="mt-5">Output from shell:</h5>
+            <pre>{{ content["command_output"] }}</pre>
+    </div>
+
+
+
+{% endblock %}

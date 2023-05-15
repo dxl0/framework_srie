@@ -1,0 +1,25 @@
+
+
+{% extends "base.html" %}
+{% block title %}SRIE > TP2 - Scanning Networks > See ports of a computer{% endblock %}
+{% block content %}
+
+<div class="container p-5 my-5">
+    <h2 class="text-center">SRIE > TP2 - Scanning Networks > Scan vulnerabilities</h2>
+
+    <div class="container p-5 my-5 border bg-light">
+        <p class="lead">
+            Nessus can scan vulnerabilities of a system, based on its IP adress. 
+        </p>
+
+        <form method="post" action="">
+        {{ content["button"].csrf_token }}
+            <button type="submit" class="btn btn-primary mt-2">Start the process</button>
+        </form>
+    </div>
+    <div class="container p-5 my-5 border bg-light">
+        <p class="lead">
+            You can now access Nessus by this <a href = "https://localhost:8834">link</a> and start a new scan.
+        </p>
+    </div>
+{% endblock %}
