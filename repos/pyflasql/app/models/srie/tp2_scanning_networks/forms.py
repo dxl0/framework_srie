@@ -38,7 +38,21 @@ class NessusButton(FlaskForm):
 
 class TraceRouteForm(FlaskForm):
     ip = StringField(validators=[
-        InputRequired(), Length(min = 2, max = 50)], render_kw={"placeholder" : "IP"}
+        InputRequired(), Length(min = 2, max = 50)], render_kw={"placeholder" : "ip"}
     )
 
     submit = SubmitField('Trace the route')
+
+class DnsForm1(FlaskForm):
+    domain1 = StringField(validators=[
+        InputRequired(), Length(min = 2, max = 50)], render_kw={"placeholder" : "Domain"}
+    )
+
+    submit = SubmitField('Recon DNS')
+
+class DnsForm2(FlaskForm):
+    domain2 = StringField(validators=[
+        InputRequired(), Length(min = 2, max = 50)], render_kw={"placeholder" : "Domain"}
+    )
+
+    submit = SubmitField('Enum DNS')

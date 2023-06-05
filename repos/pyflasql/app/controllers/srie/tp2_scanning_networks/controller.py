@@ -11,7 +11,7 @@ from flask_sqlalchemy import SQLAlchemy
 # from flask_migrate import Migrate
 from ....models.sql import db, UserDB
 from ...utils import get_shell_output
-from ....models.srie.tp2_scanning_networks.forms import PingAddrForm, NmapForm, PortsForm, NessusButton, TraceRouteForm
+from ....models.srie.tp2_scanning_networks.forms import PingAddrForm, NmapForm, PortsForm, NessusButton, TraceRouteForm, DnsForm1, DnsForm2
 import os
 
 
@@ -113,3 +113,24 @@ def srie_tp2_traceroute():
         content["command_executed"] = f"traceroute {ip}"
         content["command_output"] = get_shell_output(content["command_executed"])
     return render_template(url_for('blueprint.srie_tp2_traceroute')+'.html', content = content)
+
+@login_required
+def srie_tp2_dns():
+    content = {
+        "form1" : DnsForm1(),
+        "form2" : DnsForm2(),
+        "command_executed": "Waiting...",
+        "command_output": "Waiting...", 
+    }
+
+    if content["form1"].validate_on_submit():
+        domain1= content["form1"].domain1.data
+        content["command_executed"] = f"dnsrecon -d {domain1}"
+        content["command_output"] = get_shell_output(content["command_executed"])
+    
+    if content["form2"].validate_on_submit():
+        domain2= content["form2"].domain2.data
+        content["command_executed"] = f"dnsenum -w {domain2}"
+        content["command_output"] = get_shell_output(content["command_executed"])
+   
+    return render_template(url_for('blueprint.srie_tp2_dns')+'.html', content = content)

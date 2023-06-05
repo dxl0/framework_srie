@@ -8,7 +8,7 @@ Configures the address paths (URL routes)
 from flask import Blueprint
 from ...controllers.controller import index, login, register, dashboard, logout, about
 from ...controllers.srie.tp1_recon_footprint.controller import srie_home, srie_tp1_recon_footprint, srie_tp1_ipaddr, srie_tp1_whois
-from ...controllers.srie.tp2_scanning_networks.controller import srie_tp2_scanning_networks, srie_tp2_pingaddr, srie_tp2_nmap, srie_tp2_ports, srie_tp2_nessus, srie_tp2_traceroute
+from ...controllers.srie.tp2_scanning_networks.controller import srie_tp2_scanning_networks, srie_tp2_pingaddr, srie_tp2_nmap, srie_tp2_ports, srie_tp2_nessus, srie_tp2_traceroute, srie_tp2_dns
 from ...controllers.srie.tp3_enumeration.controller import srie_tp3_enumeration
 from ...controllers.srie.tp4_gaining_access.controller import srie_tp4_gaining_access
 from ...controllers.user_profile.controller import user_profile
@@ -44,6 +44,7 @@ blueprint.route('/srie/tp2_scanning_networks/nmap', methods=['GET', 'POST'])(sri
 blueprint.route('/srie/tp2_scanning_networks/ports', methods=['GET', 'POST'])(srie_tp2_ports)
 blueprint.route('/srie/tp2_scanning_networks/nessus', methods=['GET', 'POST'])(srie_tp2_nessus)
 blueprint.route('/srie/tp2_scanning_networks/traceroute', methods=['GET', 'POST'])(srie_tp2_traceroute)
+blueprint.route('/srie/tp2_scanning_networks/dns', methods=['GET', 'POST'])(srie_tp2_dns)
 
 # TP3 - Enumeration
 blueprint.route('/srie/tp3_enumeration/home', methods=['GET', 'POST'])(srie_tp3_enumeration)

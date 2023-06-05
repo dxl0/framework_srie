@@ -1,0 +1,67 @@
+
+
+{% extends "base.html" %}
+{% block title %}SRIE > TP2 - Scanning Networks > DNS Recon{% endblock %}
+{% block content %}
+
+<div class="container p-5 my-5">
+    <h2 class="text-center">SRIE > TP2 - Scanning Networks > DNS Recon</h2>
+
+    <div class="container p-5 my-5 border bg-light">
+        <p class="lead">
+        DNS Recon texte...</p>
+    </div>
+
+
+<!-- Command Used section -->
+    <h3 class="mt-5 text-center">Command Used</h3>
+
+    <div class="container p-5 my-5 border bg-light">
+        <p class="lead">The DNS recon tool is a Python script that can be used in the shell:</p>
+        <code>{% raw %}$ dnsrecon -d {Domain} {% endraw %}</code> <br>
+        <code>{% raw %}$ dnsenum -w {Domain} {% endraw %}</code>
+    </div>
+
+
+
+<!-- Command execution section-->  
+    <h3 class="mt-5 text-center">Command Execution for Recon</h3>
+    <div class="container p-5 my-5 border bg-light">
+        <form method="post" action="">
+            {{ content["form1"].csrf_token }}
+            <div class="form-group mt-2">
+                <label for="{{ content['form1'].domain1.id }}">{{ content["form1"].domain1.label.text }}</label>
+                {{ content["form1"].domain1(class="form-control") }}
+            </div>
+ 
+            <button type="submit" class="btn btn-primary mt-2">DNS Recon</button>
+        </form> 
+    </div>
+
+    <h3 class="mt-5 text-center">Command Execution for Enum</h3>
+    <div class="container p-5 my-5 border bg-light">
+        <form method="post" action="">
+            {{ content["form2"].csrf_token }}
+            <div class="form-group mt-2">
+                <label for="{{ content['form2'].domain2.id }}">{{ content["form2"].domain2.label.text }}</label>
+                {{ content["form2"].domain2(class="form-control") }}
+            </div>
+ 
+            <button type="submit" class="btn btn-primary mt-2">DNS Enum</button>
+        </form> 
+    </div>
+
+<!-- Command output section-->  
+    <h3 class="mt-5 text-center">Command Output</h3>
+
+    <div class="container p-5 my-5 border bg-light">
+        <h5 class="mt-5">Command executed:</h5>
+        <code>{{ content["command_executed"] }}</code>
+
+        <h5 class="mt-5">Output from shell:</h5>
+            <pre>{{ content["command_output"] }}</pre>
+    </div>
+
+
+
+{% endblock %}
