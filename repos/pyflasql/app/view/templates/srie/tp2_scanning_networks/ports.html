@@ -4,27 +4,27 @@
 {% block content %}
 
 <div class="container p-5 my-5">
-    <h2 class="text-center">SRIE > TP2 - Scanning Networks > See ports of a computer</h2>
+    <h2 class="text-center">TP2 - Scanning Networks > See ports of a computer</h2>
 
-    <div class="container p-5 my-5 border bg-light">
+    <div class="container p-5 mt-1 mb-3 ">
         <p class="lead">
         With this feature, you can examine the open ports of a designated IP address. By leveraging this tool, you can acquire valuable information about the services and applications running on the target system, aiding in vulnerability assessment and potential security analysis.</p>
     </div>
 
-
+    <hr>
 <!-- Command Used section -->
-    <h3 class="mt-5 text-center">Command Used</h3>
+    <h3 class="text-center">Command Used</h3>
 
-    <div class="container p-5 my-5 border bg-light">
+    <div class="container p-5 mt-1 mb-3 ">
         <p class="lead">The "nmap" tool is used in the command line shell. We will use one option:</p>
         <code>{% raw %}$ nmap -sV {IP} {% endraw %}</code>
     </div>
 
 
-
+    <hr>
 <!-- Command execution section-->  
-    <h3 class="mt-5 text-center">Command Execution</h3>
-    <div class="container p-5 my-5 border bg-light">
+    <h3 class="text-center">Command Execution</h3>
+    <div class="container p-5 mt-1 mb-3">
         <form method="post" action="">
             {{ content["form"].csrf_token }}
 
@@ -37,18 +37,18 @@
         </form> 
     </div>
 
-<!-- Command output section-->  
-    <h3 class="mt-5 text-center">Command Output</h3>
-
-    <div class="container p-5 my-5 border bg-light">
+    <hr>
+    <!-- Command Output section -->
+    <h3 class="text-center">Command Output</h3>
         <h5 class="mt-5">Command executed:</h5>
         <code>{{ content["command_executed"] }}</code>
-
-        <h5 class="mt-5">Output from shell:</h5>
+    <div class="container p-5 mt-1 mb-3" style="text-align :left !important">
+        <h5 class="mt-5 text-center">Output from shell:</h5>
             <pre>{{ content["command_output"] }}</pre>
     </div>
+    <hr>
 
 
-
+</div>
 {% endblock %}
 

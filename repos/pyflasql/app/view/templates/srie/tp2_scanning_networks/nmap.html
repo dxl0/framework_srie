@@ -3,27 +3,27 @@
 {% block content %}
 
 <div class="container p-5 my-5">
-    <h2 class="text-center">SRIE > TP2 - Scanning Networks > Ping an IP address</h2>
+    <h2 class="text-center">TP2 - Scanning Networks > Ping an IP address</h2>
 
-    <div class="container p-5 my-5 border bg-light">
+    <div class="container p-5 mt-1 mb-3">
         <p class="lead">
         The network scanning function allows you to utilize the Nmap command to survey the connected machines within a network and retrieve their corresponding IP addresses. This enables you to gain insights into the network topology and identify active hosts.</p>
     </div>
 
-
+    <hr>
 <!-- Command Used section -->
-    <h3 class="mt-5 text-center">Command Used</h3>
+    <h3 class="text-center">Command Used</h3>
 
-    <div class="container p-5 my-5 border bg-light">
+    <div class="container p-5 mt-1 mb-3">
         <p class="lead">The "nmap" tool is used in the command line shell. We will use two options:</p>
         <code>{% raw %}$ nmap -T3 -sn {IP} {% endraw %}</code>
     </div>
 
 
-
+    <hr>
 <!-- Command execution section-->  
-    <h3 class="mt-5 text-center">Command Execution</h3>
-    <div class="container p-5 my-5 border bg-light">
+    <h3 class="text-center">Command Execution</h3>
+    <div class="container p-5 mt-1 mb-3 ">
     <p class="lead">Please put "*" on the octet you want to scan. For example, 192.168.28.* will scan ip adress from 192.168.28.0 to .255</p>
         <form method="post" action="">
             {{ content["form"].csrf_token }}
@@ -36,18 +36,17 @@
             <button type="submit" class="btn btn-primary mt-2">Scan the network</button>
         </form> 
     </div>
+    <hr>
 
-<!-- Command output section-->  
-    <h3 class="mt-5 text-center">Command Output</h3>
-
-    <div class="container p-5 my-5 border bg-light">
+    <!-- Command Output section -->
+    <h3 class="text-center">Command Output</h3>
         <h5 class="mt-5">Command executed:</h5>
         <code>{{ content["command_executed"] }}</code>
-
-        <h5 class="mt-5">Output from shell:</h5>
+    <div class="container p-5 mt-1 mb-3" style="text-align :left !important">
+        <h5 class="mt-5 text-center">Output from shell:</h5>
             <pre>{{ content["command_output"] }}</pre>
     </div>
+    <hr>
 
-
-
+</div>
 {% endblock %}

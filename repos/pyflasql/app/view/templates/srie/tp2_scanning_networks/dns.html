@@ -5,28 +5,28 @@
 {% block content %}
 
 <div class="container p-5 my-5">
-    <h2 class="text-center">SRIE > TP2 - Scanning Networks > DNS Recon</h2>
+    <h2 class="text-center">TP2 - Scanning Networks > DNS Recon</h2>
 
-    <div class="container p-5 my-5 border bg-light">
+    <div class="container p-5 mt-1 mb-3">
         <p class="lead">
         DNS Recon texte...</p>
     </div>
 
-
+    <hr>
 <!-- Command Used section -->
-    <h3 class="mt-5 text-center">Command Used</h3>
+    <h3 class="text-center">Command Used</h3>
 
-    <div class="container p-5 my-5 border bg-light">
+    <div class="container p-5 mt-1 mb-3">
         <p class="lead">The DNS recon tool is a Python script that can be used in the shell:</p>
         <code>{% raw %}$ dnsrecon -d {Domain} {% endraw %}</code> <br>
         <code>{% raw %}$ dnsenum -w {Domain} {% endraw %}</code>
     </div>
-
+    <hr>
 
 
 <!-- Command execution section-->  
-    <h3 class="mt-5 text-center">Command Execution for Recon</h3>
-    <div class="container p-5 my-5 border bg-light">
+    <h3 class="text-center">Command Execution for Recon</h3>
+    <div class="container p-5 mt-1 mb-3">
         <form method="post" action="">
             {{ content["form1"].csrf_token }}
             <div class="form-group mt-2">
@@ -37,9 +37,9 @@
             <button type="submit" class="btn btn-primary mt-2">DNS Recon</button>
         </form> 
     </div>
-
-    <h3 class="mt-5 text-center">Command Execution for Enum</h3>
-    <div class="container p-5 my-5 border bg-light">
+    <hr>
+    <h3 class="text-center">Command Execution for Enum</h3>
+    <div class="container p-5 mt-1 mb-3">
         <form method="post" action="">
             {{ content["form2"].csrf_token }}
             <div class="form-group mt-2">
@@ -50,18 +50,17 @@
             <button type="submit" class="btn btn-primary mt-2">DNS Enum</button>
         </form> 
     </div>
-
-<!-- Command output section-->  
-    <h3 class="mt-5 text-center">Command Output</h3>
-
-    <div class="container p-5 my-5 border bg-light">
+    <hr>
+    <!-- Command Output section -->
+    <h3 class="text-center">Command Output</h3>
         <h5 class="mt-5">Command executed:</h5>
         <code>{{ content["command_executed"] }}</code>
-
-        <h5 class="mt-5">Output from shell:</h5>
+    <div class="container p-5 mt-1 mb-3" style="text-align :left !important">
+        <h5 class="mt-5 text-center">Output from shell:</h5>
             <pre>{{ content["command_output"] }}</pre>
     </div>
+    <hr>
 
-
+</div>
 
 {% endblock %}

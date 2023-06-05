@@ -4,27 +4,27 @@
 {% block content %}
 
 <div class="container p-5 my-5">
-    <h2 class="text-center">SRIE > TP2 - Scanning Networks > Trace a route</h2>
+    <h2 class="text-center">TP2 - Scanning Networks > Trace a route</h2>
 
-    <div class="container p-5 my-5 border bg-light">
+    <div class="container p-5 mt-1 mb-3 ">
         <p class="lead">
         Traceroute is an invaluable utility for mapping the path of data packets from their source to a specified destination. By leveraging this tool, you can trace the network route taken by the data, identifying each intermediate hop and gauging the latency and potential network bottlenecks along the way. This aids in troubleshooting network connectivity issues and optimizing network performance.</p>
     </div>
 
-
+    <hr>
 <!-- Command Used section -->
-    <h3 class="mt-5 text-center">Command Used</h3>
+    <h3 class="text-center">Command Used</h3>
 
-    <div class="container p-5 my-5 border bg-light">
+    <div class="container p-5 mt-1 mb-3 ">
         <p class="lead">The traceroute tool can be used in the shell:</p>
         <code>{% raw %}$ traceroute {IP} {% endraw %}</code>
     </div>
 
 
-
+    <hr>
 <!-- Command execution section-->  
-    <h3 class="mt-5 text-center">Command Execution</h3>
-    <div class="container p-5 my-5 border bg-light">
+    <h3 class="text-center">Command Execution</h3>
+    <div class="container p-5 mt-1 mb-3 b">
         <form method="post" action="">
             {{ content["form"].csrf_token }}
             <div class="form-group mt-2">
@@ -35,18 +35,18 @@
             <button type="submit" class="btn btn-primary mt-2">Trace the route</button>
         </form> 
     </div>
-
+    <hr>
 <!-- Command output section-->  
-    <h3 class="mt-5 text-center">Command Output</h3>
+    <h3 class="text-center">Command Output</h3>
 
-    <div class="container p-5 my-5 border bg-light">
+    <div class="container p-5 mt-1 mb-3 ">
         <h5 class="mt-5">Command executed:</h5>
         <code>{{ content["command_executed"] }}</code>
 
         <h5 class="mt-5">Output from shell:</h5>
             <pre>{{ content["command_output"] }}</pre>
     </div>
-
-
+    <hr>
+</div>
 
 {% endblock %}

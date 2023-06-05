@@ -26,29 +26,29 @@ Anything in this block is treated as raw text, including {{ curly braces }} and 
 {% endraw %}
 -->
 {% extends "base.html" %}
-{% block title %}SRIE > TP1 - Reconnaissance / Footprint > WHOIS{% endblock %}
+{% block title %}TP1 - Reconnaissance / Footprint > WHOIS{% endblock %}
 {% block content %}
 <div class="container p-5 my-5">
-    <h2 class="text-center">SRIE > TP1 - Reconnaissance / Footprint > WHOIS</h2>
+    <h2 class="text-center">TP1 - Reconnaissance / Footprint > WHOIS</h2>
 
-    <div class="container p-5 my-5 border bg-light">
+    <div class="container p-5 mt-1 mb-3 ">
         <p class="lead">
         This tool enables the user to get information about a domain.</p>
     </div>
-
+    <hr>
     <!-- Command Used section -->
-    <h3 class="mt-5 text-center">Command Used</h3>
+    <h3 class="text-center">Command Used</h3>
 
-    <div class="container p-5 my-5 border bg-light">
+    <div class="container p-5 mt-1 mb-3 ">
         <p class="lead">The "whois" tool is used in the command line shell. So far it takes one parameter:</p>
         <code>{% raw %}$ curl -s https://raphaelviera.fr/ismin/toolbox/whois/whois.php?domain={domain} {% endraw %}</code>
         <br><code>{% raw %}$ whois {domain} {% endraw %}</code>
     </div>
-
+    <hr>
     <!-- Help section -->
-    <h3 class="mt-5 text-center">Help</h3>
+    <h3 class="text-center">Help</h3>
 
-    <div class="container p-5 my-5 border bg-light">
+    <div class="container p-5 mt-1 mb-3">
         <p class="lead">Please refer to the following information for help on how to use this tool:</p>
         <ul>
             <li class="list-group-item">
@@ -56,17 +56,16 @@ Anything in this block is treated as raw text, including {{ curly braces }} and 
                 <p>The domain to be searched for</p>
             </li>
         </ul>
-        <p>Fields marked with * are mandatory.</p>
 
 
         <h5>Command example:</h5>
         <code>{% raw %}$ curl -s https://raphaelviera.fr/ismin/toolbox/whois/whois.php?domain=raphaelviera.fr {% endraw %}</code>
     </div>
-
+    <hr>
     <!-- Command Execution section -->
-    <h3 class="mt-5 text-center">Command Execution using raphaelviera.fr</h3>
+    <h3 class="text-center">Command Execution using raphaelviera.fr</h3>
 
-    <div class="container p-5 my-5 border bg-light">
+    <div class="container p-5 mt-1 mb-3 ">
         <form method="post" action="">
             {{ content["form"].csrf_token }}
 
@@ -79,10 +78,10 @@ Anything in this block is treated as raw text, including {{ curly braces }} and 
         </form> 
     </div>
 
+    <hr>
+    <h3 class="text-center">Command Execution using whois (may not work)</h3>
 
-    <h3 class="mt-5 text-center">Command Execution using whois (may not work)</h3>
-
-    <div class="container p-5 my-5 border bg-light">
+    <div class="container p-5 mt-1 mb-3">
         <form method="post" action="">
             {{ content["form2"].csrf_token }}
 
@@ -95,17 +94,16 @@ Anything in this block is treated as raw text, including {{ curly braces }} and 
         </form> 
     </div>
 
-
+    <hr>
     <!-- Command Output section -->
-    <h3 class="mt-5 text-center">Command Output</h3>
-
-    <div class="container p-5 my-5 border bg-light">
+    <h3 class="text-center">Command Output</h3>
         <h5 class="mt-5">Command executed:</h5>
         <code>{{ content["command_executed"] }}</code>
-
-        <h5 class="mt-5">Output from shell:</h5>
+    <div class="container p-5 mt-1 mb-3" style="text-align :left !important">
+        <h5 class="mt-5 text-center">Output from shell:</h5>
             <pre>{{ content["command_output"] }}</pre>
     </div>
+    <hr>
 
     
 </div>

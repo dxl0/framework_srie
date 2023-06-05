@@ -9,7 +9,7 @@ License: check the LICENSE file.
 <div class="container p-5 my-5">
     <!-- Main Title -->
     <h1 class="text-center">Welcome to the Penetration Testing Course (SRIE)</h1>
-    <div class="container p-5 my-5 border">
+    <div class="container p-5 mt-1 mb-5">
         <!-- Description -->
         <p class="lead">
             Pen testing, is a evaluation of an organization's ability to safeguard its networks, 
@@ -27,16 +27,19 @@ License: check the LICENSE file.
     </div>
 
     <!-- Four steps section -->
-    <h2 class="mt-5 my-5 text-center">The Four Steps in the Penetration Testing Process</h2>
+    <h2 class="text-center">The Four Steps in the Penetration Testing Process</h2>
 
-    <div class="container p-5 my-5 border">
+    <div class="container p-5 mt-1 mb-2">
         <p class="lead">
             In this course, you will learn about assessing and evaluating the security of networks, applications, 
             and systems. The pentesting process is divided into four key steps, which you will implement through 
             practical labs and code exercises to gain hands-on experience. You will develop skills in identifying 
-            vulnerabilities, exploiting weaknesses, and evaluating security posture.
-        </p>
-        <ol class="list-group mt-5">
+            vulnerabilities, exploiting weaknesses, and evaluating security posture. </p>
+    </div>
+    
+    
+        
+        <ol class="list-group">
             <li class="list-group-item">
                 <h5><a href="{{url_for('blueprint.srie_tp1_recon_footprint')}}" class="list-group-item-action">TP1 - Reconnaissance / Footprint</a></h5>
                 <p class="lead">This step involves gathering information about the target system or network, such as identifying the
@@ -70,7 +73,7 @@ License: check the LICENSE file.
                 </p>
             </li>
         </ol>
-    </div>
+    
 </div>
 {% endblock %}
 
