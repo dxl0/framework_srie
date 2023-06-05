@@ -11,7 +11,7 @@ from flask_sqlalchemy import SQLAlchemy
 # from flask_migrate import Migrate
 from ....models.sql import db, UserDB
 from ...utils import get_shell_output
-from ....models.srie.tp2_scanning_networks.forms import PingAddrForm, NmapForm, PortsForm, NessusButton
+from ....models.srie.tp2_scanning_networks.forms import PingAddrForm, NmapForm, PortsForm, NessusButton, TraceRouteForm
 import os
 
 
@@ -99,3 +99,17 @@ def srie_tp2_nessus():
     if content["button"].validate_on_submit():
         os.system('/bin/systemctl start nessusd.service')
     return render_template(url_for('blueprint.srie_tp2_nessus')+'.html', content= content)
+
+@login_required
+def srie_tp2_traceroute():
+    content = {
+        "form" : TraceRouteForm(),
+        "command_executed": "Waiting...",
+        "command_output": "Waiting...", 
+    }
+
+    if content["form"].validate_on_submit():
+        ip = content["form"].ip.data
+        content["command_executed"] = f"traceroute {ip}"
+        content["command_output"] = get_shell_output(content["command_executed"])
+    return render_template(url_for('blueprint.srie_tp2_traceroute')+'.html', content = content)

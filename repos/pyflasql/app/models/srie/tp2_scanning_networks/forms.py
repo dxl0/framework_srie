@@ -35,3 +35,10 @@ class PortsForm(FlaskForm):
 
 class NessusButton(FlaskForm):
     submit = SubmitField('Start Nessus Process')
+
+class TraceRouteForm(FlaskForm):
+    ip = StringField(validators=[
+        InputRequired(), Length(min = 2, max = 50)], render_kw={"placeholder" : "IP"}
+    )
+
+    submit = SubmitField('Trace the route')
