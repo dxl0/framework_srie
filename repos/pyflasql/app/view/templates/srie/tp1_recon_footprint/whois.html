@@ -33,8 +33,7 @@ Anything in this block is treated as raw text, including {{ curly braces }} and 
 
     <div class="container p-5 my-5 border bg-light">
         <p class="lead">
-            WHOIS description...
-        </p>
+        This tool enables the user to get information about a domain.</p>
     </div>
 
     <!-- Command Used section -->
@@ -43,6 +42,7 @@ Anything in this block is treated as raw text, including {{ curly braces }} and 
     <div class="container p-5 my-5 border bg-light">
         <p class="lead">The "whois" tool is used in the command line shell. So far it takes one parameter:</p>
         <code>{% raw %}$ curl -s https://raphaelviera.fr/ismin/toolbox/whois/whois.php?domain={domain} {% endraw %}</code>
+        <br><code>{% raw %}$ whois {domain} {% endraw %}</code>
     </div>
 
     <!-- Help section -->
@@ -52,7 +52,7 @@ Anything in this block is treated as raw text, including {{ curly braces }} and 
         <p class="lead">Please refer to the following information for help on how to use this tool:</p>
         <ul>
             <li class="list-group-item">
-                <h5>{domain}*</h5>
+                <h5>{domain}</h5>
                 <p>The domain to be searched for</p>
             </li>
         </ul>
@@ -64,7 +64,7 @@ Anything in this block is treated as raw text, including {{ curly braces }} and 
     </div>
 
     <!-- Command Execution section -->
-    <h3 class="mt-5 text-center">Command Execution</h3>
+    <h3 class="mt-5 text-center">Command Execution using raphaelviera.fr</h3>
 
     <div class="container p-5 my-5 border bg-light">
         <form method="post" action="">
@@ -78,6 +78,23 @@ Anything in this block is treated as raw text, including {{ curly braces }} and 
             <button type="submit" class="btn btn-primary mt-2">Submit</button>
         </form> 
     </div>
+
+
+    <h3 class="mt-5 text-center">Command Execution using whois (may not work)</h3>
+
+    <div class="container p-5 my-5 border bg-light">
+        <form method="post" action="">
+            {{ content["form2"].csrf_token }}
+
+            <div class="form-group mt-2">
+                <label for="{{ content['form2'].domain2.id }}">{{ content["form2"].domain2.label.text }}</label>
+                {{ content["form2"].domain2(class="form-control") }}
+            </div>
+            
+            <button type="submit" class="btn btn-primary mt-2">Submit</button>
+        </form> 
+    </div>
+
 
     <!-- Command Output section -->
     <h3 class="mt-5 text-center">Command Output</h3>

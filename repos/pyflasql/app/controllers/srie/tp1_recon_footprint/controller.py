@@ -11,7 +11,7 @@ from flask_sqlalchemy import SQLAlchemy
 # from flask_migrate import Migrate
 from ....models.sql import db, UserDB
 from ...utils import get_shell_output, CheckIf
-from ....models.srie.tp1_recon_footprint.forms import WhoisForm
+from ....models.srie.tp1_recon_footprint.forms import WhoisForm, WhoisForm2
 
 
 @login_required
@@ -62,7 +62,7 @@ def srie_tp1_ipaddr():
     content = {"ip_address_private": "x.x.x.x", 
                "ip_address_public": "x.x.x.x",
                "cmd_ip_address_private": f"hostname -I",
-               "cmd_ip_address_public": f"To be implemented"
+               "cmd_ip_address_public": f"curl -s https://raphaelviera.fr/ismin/toolbox/my_ip.php"
                }
     # Uses get_shell_output() to execute a command in the shell and store the output in the dict.
     content["ip_address_private"] = get_shell_output(content["cmd_ip_address_private"])
@@ -87,6 +87,7 @@ def srie_tp1_whois():
         """
     # Create a dict to store the formulary and the shell output. This dict is passed to the .html file.
     content = {"form": WhoisForm(),
+                "form2" : WhoisForm2(),
                "command_executed": "Waiting ...",
                "command_output": "Waiting ..."
                }
@@ -96,7 +97,10 @@ def srie_tp1_whois():
         domain = content["form"].domain.data
         content["command_executed"] = f"curl -s https://raphaelviera.fr/ismin/toolbox/whois/whois.php?domain={domain}"
         content["command_output"] = get_shell_output(content["command_executed"])
-        # print(content["shell_output"])  # for debug only
-        return render_template(url_for('blueprint.srie_tp1_whois')+'.html', content=content)
+
+    if content["form2"].validate_on_submit():
+        domain2 = content["form2"].domain2.data
+        content["command_executed"] = f"whois {domain2}"
+        content["command_output"] = get_shell_output(content["command_executed"])
 
     return render_template(url_for('blueprint.srie_tp1_whois')+'.html', content=content)
