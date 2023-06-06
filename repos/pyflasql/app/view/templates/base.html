@@ -21,8 +21,7 @@ License: check the LICENSE file.
 
 <body class = "text-center bg-dark">
      
-    <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
-      <header class="masthead mb-5" >
+      <header class="masthead mb-5 p-4 fixed-top" >
         <div class="inner">
           <h3 class="masthead-brand">PyFlaSQL</h3>
           <nav class="nav nav-masthead justify-content-center">
@@ -35,6 +34,7 @@ License: check the LICENSE file.
         </div>
       </header>
         
+    <div class="cover-container d-flex p-3 h-100 mx-auto flex-column">
         <div id="page-content-wrapper">
             <div class="container-fluid">
                 {% with messages = get_flashed_messages(with_categories=true) %}
