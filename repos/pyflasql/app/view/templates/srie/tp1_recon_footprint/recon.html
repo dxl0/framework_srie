@@ -29,11 +29,38 @@
     </div>
     <hr>
 
-    <h3 class="text-center">How to use</h3>
+    <h3 class="text-center">Quick start</h3>
 
     <div class="container p-5 mt-1 mb-3">
         <p class="lead">The tool can be installed through the command line :</p>
         <code class="p-5">{% raw %}sudo apt install recon-ng{% endraw %}</code>
+        <p class="lead"><br>From the console, it is easy to get help by typing help after launching the framework.</p>
+        <p class="lead"><br>Recon-ng begins with an empty framework. You will need to install modules and packages that
+            are
+            useful for you.</p>
+    </div>
+    <hr>
+    <h3 class="text-center">Create a workspace</h3>
+
+    <div class="container p-5 mt-1 mb-3">
+        <p class="lead">You will first need to create a workspace by typing :</p>
+        <code class="p-5">{% raw %}workspaces create name_of_the_workspace{% endraw %}</code>
+        <p class="lead"><br>The following command will opens directly to that workspace</p>
+        <code class="p-5">{% raw %}recon-ng -w name_of_the_workspace{% endraw %}</code>
+    </div>
+    <hr>
+    <h3 class="text-center">Modules</h3>
+
+    <div class="container p-5 mt-1 mb-3">
+        <p class="lead">You can get help and a list of all the modules by typing : </p>
+        <code class="p-5">{% raw %}marketplace help{% endraw %}</code>
+        <code class="p-5">{% raw %}marketplace search{% endraw %}</code>
+        <p class="lead"><br>You can install modules by typing :</p>
+        <code class="p-5">{% raw %}marketplace install module_name{% endraw %}</code>
+        <p class="lead"><br>Then, you will need to load the module :</p>
+        <code class="p-5">{% raw %}modules load module_name{% endraw %}</code>
+        <p class="lead"><br>Finally, you can run the module :</p>
+        <code class="p-5">{% raw %}run{% endraw %}</code>
     </div>
     <hr>
 </div>
