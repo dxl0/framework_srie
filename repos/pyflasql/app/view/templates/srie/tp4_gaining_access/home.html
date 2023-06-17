@@ -9,59 +9,44 @@ License: check the LICENSE file.
 <div class="container p-5 my-5">
     <!-- Main Title -->
     <h1 class="text-center">SRIE > TP4 - Gaining Access</h2>
-    <div class="container p-5 my-5 border">
-        <!-- Description -->
-        <p class="lead">
-            Description text. Description text. Description text. Description text.
-        </p>
-                
-        <p class="lead">
-            Description text. Description text. Description text. Description text. 
-        </p>
-    </div>
+        <div class="container p-5 my-5">
+            <!-- Description -->
+            <p class="lead">The final step in the penetration testing process is gaining access to the target system or
+                network. You will learn about various techniques, such as exploiting vulnerabilities, brute
+                forcing, to gain unauthorized access to the target environment.
+            </p>
+        </div>
 
-    <!-- Useful tools title -->
-    <h2 class="mt-5 text-center">Useful tools used in this phase</h2>    
+        <!-- Useful tools title -->
+        <h2 class="mt-5 text-center">Useful tools used in this phase</h2>
 
-    <div class="container p-5 my-5 border">
-        <p class="lead">
-            Below is a list of tools that can be used for this pentesting phase:
-        </p>
-        
-        <ol class="list-group">
-            <li class="list-group-item">
-                <h5><a href="#" class="list-group-item-action">Tool 1</a></h5>
-                <p class="lead">
-                    Description text. Description text. Description text. Description text.
-                </p>
-            </li>
-            <li class="list-group-item">
-                <h5><a href="#" class="list-group-item-action">Tool 2</a></h5>
-                <p class="lead">
-                    Description text. Description text. Description text. Description text.
-                </p>
-            </li>
-            <li class="list-group-item">
-                <h5><a href="#" class="list-group-item-action">Tool 3</a></h5>
-                <p class="lead">
-                    Description text. Description text. Description text. Description text.
-                </p>
-            </li>
-            <li class="list-group-item">
-                <h5><a href="#" class="list-group-item-action">Tool 4</a></h5>
-                <p class="lead">
-                    Description text. Description text. Description text. Description text.
-                </p>
-            </li>
-            <li class="list-group-item">
-                <h5><a href="#" class="list-group-item-action">Tool 5</a></h5>
-                <p class="lead">
-                    Description text. Description text. Description text. Description text.
-                </p>
-            </li>
-        </ol>
-    </div>
+        <div class="container p-5 my-5">
+            <p class="lead">
+                Below is a list of tools that can be used for this pentesting phase:
+            </p>
+
+            <ol class="list-group">
+                <li class="list-group-item">
+                    <h5><a href="{{url_for('blueprint.srie_tp4_hydra')}}" class="list-group-item-action">Hydra</a></h5>
+                    <p class="lead">
+                        Hydra is a parallelized login cracker which supports numerous protocols to attack. It is very
+                        fast and flexible, and new modules are easy to add. This tool makes it possible for researchers
+                        and security consultants to show how easy it would be to gain unauthorized access to a system
+                        remotely.
+                    </p>
+                </li>
+                <li class="list-group-item">
+                    <h5><a href="{{url_for('blueprint.srie_tp4_VSFTPD')}}" class="list-group-item-action">Exploiting
+                            VSFTPD backdoor manually</a></h5>
+                </li>
+                <li class="list-group-item">
+                    <h5><a href="#" class="list-group-item-action">Matasploit framework</a></h5>
+                    <p class="lead">
+                        Description text. Description text. Description text. Description text.
+                    </p>
+                </li>
+            </ol>
+        </div>
 
 </div>
 {% endblock %}
-

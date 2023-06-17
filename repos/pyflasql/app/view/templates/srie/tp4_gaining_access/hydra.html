@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block title %}SRIE > TP4 - Gaining acces > Hydra{% endblock %}
+{% block content %}
+
+<div class="container p-5 my-5">
+    <h2 class="text-center">SRIE > TP4 - Gaining acces > Hydra</h2>
+
+    <div class="container p-5 mt-1 mb-3 ">
+        <p class="lead">
+            Hydra is a parallelized login cracker which supports numerous protocols to attack. It is very fast and
+            flexible, and new modules are easy to add. This tool makes it possible for researchers and security
+            consultants to show how easy it would be to gain unauthorized access to a system remotely.
+    </div>
+
+    <hr>
+    <!-- Command Used section -->
+    <h3 class="text-center">Command Used</h3>
+
+    <div class="container p-5 mt-1 mb-3 ">
+        <p class="lead">The hydra tool can be used in the shell. Please complete the form. Ip is the IP of the remote
+            system. Usernames and passwords are refering to the path of the files containing the usernames and the
+            passwords that are going to be tested.</p>
+        <p class="lead"><br>There is a format to respect which is the following (for usernames and passwords files):</p>
+        <p class="lead"><br>User1<br>User2<br>User3<br>...</p>
+        <p class="lead"><br>Hydra tool can be run from the console :</p>
+        <code>{% raw %}$ hydra -L {usernames} -P {passwords} {IP} ftp -V{% endraw %}</code>
+    </div>
+
+
+    <hr>
+    <!-- Command execution section-->
+    <h3 class="text-center">Command Execution</h3>
+    <div class="container p-5 mt-1 mb-3 b">
+        <form method="post" action="">
+            {{ content["form"].csrf_token }}
+            <div class="form-group mt-2">
+                <label for="{{ content['form'].ip.id }}">{{ content["form"].ip.label.text }}</label>
+                {{ content["form"].ip(class="form-control") }}
+                <label for="{{ content['form'].usernames.id }}">{{ content["form"].usernames.label.text }}</label>
+                {{ content["form"].usernames(class="form-control") }}
+                <label for="{{ content['form'].passwords.id }}">{{ content["form"].passwords.label.text }}</label>
+                {{ content["form"].passwords(class="form-control") }}
+            </div>
+
+            <button type="submit" class="btn btn-primary mt-2">Brute force</button>
+        </form>
+    </div>
+    <hr>
+    <!-- Command output section-->
+    <h3 class="text-center">Command Output</h3>
+    <h5 class="mt-5">Command executed:</h5>
+    <code>{{ content["command_executed"] }}</code>
+    <div class="container p-5 mt-1 mb-3" style="text-align :left !important">
+        <h5 class="mt-5 text-center">Output from shell:</h5>
+        <pre>{{ content["command_output"] }}</pre>
+    </div>
+
+    <hr>
+</div>
+
+{% endblock %}

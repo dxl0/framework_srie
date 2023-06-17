@@ -9,66 +9,94 @@ License: check the LICENSE file.
 <div class="container p-5 my-5">
     <!-- Main Title -->
     <h1 class="text-center">TP2 - Scanning Networks</h2>
-    <div class="container p-5 mt-1 mb-5">
-        <!-- Description -->
-        <p class="lead">
-        You will learn how to use scanning tools to extract data from a particular system throughout this experiment. You may scan a susceptible computer with these tools, find probable vulnerabilities, and get ready to conduct targeted assaults. We'll take a more proactive stance when investigating networks, looking at various scanning methods and technologies. Instead than just depending on particular technologies, it is essential to comprehend the fundamental principles of these tools. We can speed up the process while lowering the danger of discovery by boosting the attacker's information gathering skills prior to attempting to hack a system.
-        </p>
-    </div>
+        <div class="container p-5 mt-1 mb-5">
+            <!-- Description -->
+            <p class="lead">
+                You will learn how to use scanning tools to extract data from a particular system throughout this
+                experiment. You may scan a susceptible computer with these tools, find probable vulnerabilities, and get
+                ready to conduct targeted assaults. We'll take a more proactive stance when investigating networks,
+                looking at various scanning methods and technologies. Instead than just depending on particular
+                technologies, it is essential to comprehend the fundamental principles of these tools. We can speed up
+                the process while lowering the danger of discovery by boosting the attacker's information gathering
+                skills prior to attempting to hack a system.
+            </p>
+        </div>
 
-    <!-- Useful tools title -->
-    <h2 class="text-center">Useful tools used in this phase</h2>    
+        <!-- Useful tools title -->
+        <h2 class="text-center">Useful tools used in this phase</h2>
 
-    <div class="container p-5 mt-1 mb-5">
-        <p class="lead">
-            Below is a list of tools that can be used for this pentesting phase:
-        </p>
-        
-        <ol class="list-group">
-            <li class="list-group-item">
-                <h5><a href="{{url_for('blueprint.srie_tp2_pingaddr')}}" class="list-group-item-action">Ping an IP address</a></h5>
-                <p class="lead">
-                    Ping can be used during a penetration test to send ICMP Echo Request packets to a target system or 
-                    network, and then analyze the response to gather information about the target. By sending ping requests and 
-                    analyzing the responses, pentesters can determine if a host is online, assess its response time (round-trip time or 
-                    RTT), and identify potential targets for further exploration or exploitation.
-                </p>
-            </li>
-            <li class="list-group-item">
-                <h5><a href="{{url_for('blueprint.srie_tp2_nmap')}}" class="list-group-item-action">Scan the network</a></h5>
-                <p class="lead">
-            The network scanning function allows you to utilize the Nmap command to survey the connected machines within a network and retrieve their corresponding IP addresses. This enables you to gain insights into the network topology and identify active hosts.
-                </p>
-</li>
-            <li class="list-group-item">
-                <h5><a href="{{url_for('blueprint.srie_tp2_ports')}}" class="list-group-item-action">See ports of a computer</a></h5>
-                <p class="lead">
-                    With this feature, you can examine the open ports of a designated IP address. By leveraging this tool, you can acquire valuable information about the services and applications running on the target system, aiding in vulnerability assessment and potential security analysis. 
-                </p>
-            </li>
-            <li class="list-group-item">
-                <h5><a href="{{url_for('blueprint.srie_tp2_nessus')}}" class="list-group-item-action">Nessus</a></h5>
-                <p class="lead">
-                    Nessus serves as a powerful tool for conducting remote computer vulnerability scans. By utilizing Nessus, you can comprehensively assess the security posture of a remote system, detecting and highlighting potential vulnerabilities and weaknesses that may pose a risk to its integrity or confidentiality.Nessus can be used to scan vulnerabilities of a remote computer.
-                </p>
-            </li>
+        <div class="container p-5 mt-1 mb-5">
+            <p class="lead">
+                Below is a list of tools that can be used for this pentesting phase:
+            </p>
 
-            <li class="list-group-item">
-                <h5><a href="{{url_for('blueprint.srie_tp2_traceroute')}}" class="list-group-item-action">Traceroute</a></h5>
-                <p class="lead">
-                    Traceroute is an invaluable utility for mapping the path of data packets from their source to a specified destination. By leveraging this tool, you can trace the network route taken by the data, identifying each intermediate hop and gauging the latency and potential network bottlenecks along the way. This aids in troubleshooting network connectivity issues and optimizing network performance.Traceroute is a tool used to provide a map of how data travels from its source to its destination.
-                </p>
-            </li>
+            <ol class="list-group">
+                <li class="list-group-item">
+                    <h5><a href="{{url_for('blueprint.srie_tp2_pingaddr')}}" class="list-group-item-action">Ping an IP
+                            address</a></h5>
+                    <p class="lead">
+                        Ping can be used during a penetration test to send ICMP Echo Request packets to a target system
+                        or
+                        network, and then analyze the response to gather information about the target. By sending ping
+                        requests and
+                        analyzing the responses, pentesters can determine if a host is online, assess its response time
+                        (round-trip time or
+                        RTT), and identify potential targets for further exploration or exploitation.
+                    </p>
+                </li>
+                <li class="list-group-item">
+                    <h5><a href="{{url_for('blueprint.srie_tp2_nmap')}}" class="list-group-item-action">Scan the
+                            network</a></h5>
+                    <p class="lead">
+                        The network scanning function allows you to utilize the Nmap command to survey the connected
+                        machines within a network and retrieve their corresponding IP addresses. This enables you to
+                        gain insights into the network topology and identify active hosts.
+                    </p>
+                </li>
+                <li class="list-group-item">
+                    <h5><a href="{{url_for('blueprint.srie_tp2_ports')}}" class="list-group-item-action">See ports of a
+                            computer</a></h5>
+                    <p class="lead">
+                        With this feature, you can examine the open ports of a designated IP address. By leveraging this
+                        tool, you can acquire valuable information about the services and applications running on the
+                        target system, aiding in vulnerability assessment and potential security analysis.
+                    </p>
+                </li>
+                <li class="list-group-item">
+                    <h5><a href="{{url_for('blueprint.srie_tp2_nessus')}}" class="list-group-item-action">Nessus</a>
+                    </h5>
+                    <p class="lead">
+                        Nessus serves as a powerful tool for conducting remote computer vulnerability scans. By
+                        utilizing Nessus, you can comprehensively assess the security posture of a remote system,
+                        detecting and highlighting potential vulnerabilities and weaknesses that may pose a risk to its
+                        integrity or confidentiality.Nessus can be used to scan vulnerabilities of a remote computer.
+                    </p>
+                </li>
 
-            <li class="list-group-item">
-                <h5><a href="{{url_for('blueprint.srie_tp2_dns')}}" class="list-group-item-action">DNS Reconnaissance</a></h5>
-                <p class="lead">
-                DNS Recon ...
-                </p>
-            </li>
-        </ol>
-    </div>
+                <li class="list-group-item">
+                    <h5><a href="{{url_for('blueprint.srie_tp2_traceroute')}}"
+                            class="list-group-item-action">Traceroute</a></h5>
+                    <p class="lead">
+                        Traceroute is an invaluable utility for mapping the path of data packets from their source to a
+                        specified destination. By leveraging this tool, you can trace the network route taken by the
+                        data, identifying each intermediate hop and gauging the latency and potential network
+                        bottlenecks along the way. This aids in troubleshooting network connectivity issues and
+                        optimizing network performance.Traceroute is a tool used to provide a map of how data travels
+                        from its source to its destination.
+                    </p>
+                </li>
+
+                <li class="list-group-item">
+                    <h5><a href="{{url_for('blueprint.srie_tp2_dns')}}" class="list-group-item-action">DNS
+                            Reconnaissance</a></h5>
+                    <p class="lead">
+                        DNS reconnaissance is part of the information gathering stage on a penetration test engagement.
+                        When a penetration tester is performing a DNS reconnaissance is trying to obtain as much as
+                        information as he can regarding the DNS servers and their records.
+                    </p>
+                </li>
+            </ol>
+        </div>
 
 </div>
 {% endblock %}
-

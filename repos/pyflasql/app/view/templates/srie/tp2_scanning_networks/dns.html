@@ -1,5 +1,3 @@
-
-
 {% extends "base.html" %}
 {% block title %}SRIE > TP2 - Scanning Networks > DNS Recon{% endblock %}
 {% block content %}
@@ -9,11 +7,13 @@
 
     <div class="container p-5 mt-1 mb-3">
         <p class="lead">
-        DNS Recon texte...</p>
+            DNS reconnaissance is part of the information gathering stage on a penetration test engagement. When a
+            penetration tester is performing a DNS reconnaissance is trying to obtain as much as information as he can
+            regarding the DNS servers and their records.</p>
     </div>
 
     <hr>
-<!-- Command Used section -->
+    <!-- Command Used section -->
     <h3 class="text-center">Command Used</h3>
 
     <div class="container p-5 mt-1 mb-3">
@@ -24,7 +24,7 @@
     <hr>
 
 
-<!-- Command execution section-->  
+    <!-- Command execution section-->
     <h3 class="text-center">Command Execution for Recon</h3>
     <div class="container p-5 mt-1 mb-3">
         <form method="post" action="">
@@ -33,9 +33,9 @@
                 <label for="{{ content['form1'].domain1.id }}">{{ content["form1"].domain1.label.text }}</label>
                 {{ content["form1"].domain1(class="form-control") }}
             </div>
- 
+
             <button type="submit" class="btn btn-primary mt-2">DNS Recon</button>
-        </form> 
+        </form>
     </div>
     <hr>
     <h3 class="text-center">Command Execution for Enum</h3>
@@ -46,18 +46,18 @@
                 <label for="{{ content['form2'].domain2.id }}">{{ content["form2"].domain2.label.text }}</label>
                 {{ content["form2"].domain2(class="form-control") }}
             </div>
- 
+
             <button type="submit" class="btn btn-primary mt-2">DNS Enum</button>
-        </form> 
+        </form>
     </div>
     <hr>
     <!-- Command Output section -->
     <h3 class="text-center">Command Output</h3>
-        <h5 class="mt-5">Command executed:</h5>
-        <code>{{ content["command_executed"] }}</code>
+    <h5 class="mt-5">Command executed:</h5>
+    <code>{{ content["command_executed"] }}</code>
     <div class="container p-5 mt-1 mb-3" style="text-align :left !important">
         <h5 class="mt-5 text-center">Output from shell:</h5>
-            <pre>{{ content["command_output"] }}</pre>
+        <pre>{{ content["command_output"] }}</pre>
     </div>
     <hr>
 

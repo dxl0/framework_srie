@@ -11,6 +11,8 @@ from flask_sqlalchemy import SQLAlchemy
 # from flask_migrate import Migrate
 from ....models.sql import db, UserDB
 from ...utils import get_shell_output
+from ....models.srie.tp4_gaining_access.forms import HydraForm
+
 
 
 @login_required
@@ -27,3 +29,24 @@ def srie_tp4_gaining_access():
         """
     username = current_user.username
     return render_template(url_for('blueprint.srie_tp4_gaining_access')+'.html', username=username)
+
+
+@login_required
+def srie_tp4_hydra():
+    content = {
+        "form" : HydraForm(),
+        "command_executed": "Waiting...",
+        "command_output": "Waiting...", 
+    }
+
+    if content["form"].validate_on_submit():
+        ip = content["form"].ip.data
+        usernames = content["form"].usernames.data
+        passwords = content["form"].passwords.data
+        content["command_executed"] = f""
+        content["command_output"] = get_shell_output(content["command_executed"])
+    return render_template(url_for('blueprint.srie_tp4_hydra')+'.html', content = content)
+
+@login_required
+def srie_tp4_VSFTPD():
+    return render_template(url_for('blueprint.srie_tp4_VSFTPD')+'.html')
