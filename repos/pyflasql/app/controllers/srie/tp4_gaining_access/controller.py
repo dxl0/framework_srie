@@ -43,7 +43,7 @@ def srie_tp4_hydra():
         ip = content["form"].ip.data
         usernames = content["form"].usernames.data
         passwords = content["form"].passwords.data
-        content["command_executed"] = f""
+        content["command_executed"] = f"hydra -L {usernames} -P {passwords} {ip} ftp -V"
         content["command_output"] = get_shell_output(content["command_executed"])
     return render_template(url_for('blueprint.srie_tp4_hydra')+'.html', content = content)
 
