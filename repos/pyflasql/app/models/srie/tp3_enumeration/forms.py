@@ -10,4 +10,29 @@ from wtforms import StringField, PasswordField, BooleanField, SubmitField
 from wtforms.validators import DataRequired, Email, InputRequired, Length, ValidationError
 
 
-# to be implemented
+class BannerForm(FlaskForm):
+    ip = StringField(validators=[
+        InputRequired(), Length(min=2, max=50)], render_kw={"placeholder": "IP"}
+    ) 
+ 
+    submit = SubmitField('Grab')
+
+
+class OSForm(FlaskForm):
+    ip = StringField(validators=[
+        InputRequired(), Length(min=2, max=50)], render_kw={"placeholder": "IP"}
+    ) 
+    
+    password = StringField(validators=[
+        InputRequired(), Length(min=2, max=50)], render_kw={"placeholder": "PASSWORD"}
+    ) 
+    
+ 
+    submit = SubmitField('Get os')
+
+class LDAPForm(FlaskForm):
+    ip = StringField(validators=[
+        InputRequired(), Length(min=2, max=50)], render_kw={"placeholder": "IP"}
+    ) 
+ 
+    submit = SubmitField('LDAP')

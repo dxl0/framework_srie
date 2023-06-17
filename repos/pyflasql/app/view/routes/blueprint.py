@@ -7,9 +7,9 @@ Configures the address paths (URL routes)
 """
 from flask import Blueprint
 from ...controllers.controller import index, login, register, dashboard, logout, about
-from ...controllers.srie.tp1_recon_footprint.controller import srie_home, srie_tp1_recon_footprint, srie_tp1_ipaddr, srie_tp1_whois
+from ...controllers.srie.tp1_recon_footprint.controller import srie_home, srie_tp1_recon_footprint, srie_tp1_ipaddr, srie_tp1_whois, srie_tp1_recon
 from ...controllers.srie.tp2_scanning_networks.controller import srie_tp2_scanning_networks, srie_tp2_pingaddr, srie_tp2_nmap, srie_tp2_ports, srie_tp2_nessus, srie_tp2_traceroute, srie_tp2_dns
-from ...controllers.srie.tp3_enumeration.controller import srie_tp3_enumeration
+from ...controllers.srie.tp3_enumeration.controller import srie_tp3_enumeration, srie_tp3_banner_grabbing, srie_tp3_os_reco, srie_tp3_ldap
 from ...controllers.srie.tp4_gaining_access.controller import srie_tp4_gaining_access
 from ...controllers.user_profile.controller import user_profile
 from ...controllers.toolbox.controller import toolbox_home
@@ -36,6 +36,7 @@ blueprint.route('/srie/home', methods=['GET', 'POST'])(srie_home)
 blueprint.route('/srie/tp1_recon_footprint/home', methods=['GET', 'POST'])(srie_tp1_recon_footprint)
 blueprint.route('/srie/tp1_recon_footprint/ipaddr', methods=['GET', 'POST'])(srie_tp1_ipaddr)
 blueprint.route('/srie/tp1_recon_footprint/whois', methods=['GET', 'POST'])(srie_tp1_whois)
+blueprint.route('/srie/tp1_recon_footprint/recon', methods=['GET','POST'])(srie_tp1_recon)
 
 # TP2 - Scanning Networks
 blueprint.route('/srie/tp2_scanning_networks/home', methods=['GET', 'POST'])(srie_tp2_scanning_networks)
@@ -48,6 +49,9 @@ blueprint.route('/srie/tp2_scanning_networks/dns', methods=['GET', 'POST'])(srie
 
 # TP3 - Enumeration
 blueprint.route('/srie/tp3_enumeration/home', methods=['GET', 'POST'])(srie_tp3_enumeration)
+blueprint.route('/srie/tp3_enumeration/banner_grabbing', methods=['GET', 'POST'])(srie_tp3_banner_grabbing)
+blueprint.route('/srie/tp3_enumeration/os_reco', methods = ['GET', 'POST'])(srie_tp3_os_reco)
+blueprint.route('/srie/tp3_enumeration/ldap', methods=['GET', 'POST'])(srie_tp3_ldap)
 
 # TP4 - Gaining Access
 blueprint.route('/srie/tp4_gaining_access/home', methods=['GET', 'POST'])(srie_tp4_gaining_access)

@@ -104,3 +104,7 @@ def srie_tp1_whois():
         content["command_output"] = get_shell_output(content["command_executed"])
 
     return render_template(url_for('blueprint.srie_tp1_whois')+'.html', content=content)
+
+@login_required
+def srie_tp1_recon():
+    return render_template(url_for('blueprint.srie_tp1_recon')+'.html')

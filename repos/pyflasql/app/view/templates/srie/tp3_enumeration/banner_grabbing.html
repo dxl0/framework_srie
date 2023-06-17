@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block title %}SRIE > TP3 - Enumeration > Banner Grabbing{% endblock %}
+{% block content %}
+
+<div class="container p-5 my-5">
+    <h2 class="text-center">TP3 - Enumeration > Benner grabbing</h2>
+
+    <div class="container p-5 mt-1 mb-3 ">
+        <p class="lead">
+            text for banner grabbing
+    </div>
+
+    <hr>
+    <!-- Command Used section -->
+    <h3 class="text-center">Command Used</h3>
+
+    <div class="container p-5 mt-1 mb-3 ">
+        <p class="lead">The nmap tool can be used in the shell:</p>
+        <code>{% raw %}$ nmap -sV -scipt=banner {IP} {% endraw %}</code>
+    </div>
+
+
+    <hr>
+    <!-- Command execution section-->
+    <h3 class="text-center">Command Execution</h3>
+    <div class="container p-5 mt-1 mb-3 b">
+        <form method="post" action="">
+            {{ content["form"].csrf_token }}
+            <div class="form-group mt-2">
+                <label for="{{ content['form'].ip.id }}">{{ content["form"].ip.label.text }}</label>
+                {{ content["form"].ip(class="form-control") }}
+            </div>
+
+            <button type="submit" class="btn btn-primary mt-2">Grab banners</button>
+        </form>
+    </div>
+    <hr>
+    <!-- Command output section-->
+    <h3 class="text-center">Command Output</h3>
+    <h5 class="mt-5">Command executed:</h5>
+    <code>{{ content["command_executed"] }}</code>
+    <div class="container p-5 mt-1 mb-3" style="text-align :left !important">
+        <h5 class="mt-5 text-center">Output from shell:</h5>
+        <pre>{{ content["command_output"] }}</pre>
+    </div>
+
+    <hr>
+</div>
+
+{% endblock %}

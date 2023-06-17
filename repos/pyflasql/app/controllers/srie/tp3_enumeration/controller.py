@@ -11,6 +11,8 @@ from flask_sqlalchemy import SQLAlchemy
 # from flask_migrate import Migrate
 from ....models.sql import db, UserDB
 from ...utils import get_shell_output
+from ....models.srie.tp3_enumeration.forms import BannerForm, OSForm, LDAPForm
+import os
 
 
 @login_required
@@ -27,3 +29,49 @@ def srie_tp3_enumeration():
         """
     username = current_user.username
     return render_template(url_for('blueprint.srie_tp3_enumeration')+'.html', username=username)
+
+
+
+@login_required
+def srie_tp3_banner_grabbing():
+    content = {
+        "form" : BannerForm(),
+        "command_executed": "Waiting...",
+        "command_output": "Waiting...", 
+    }
+
+    if content["form"].validate_on_submit():
+        ip = content["form"].ip.data
+        content["command_executed"] = f"nmap -sV -script=banner {ip}"
+        content["command_output"] = get_shell_output(content["command_executed"])
+    return render_template(url_for('blueprint.srie_tp3_banner_grabbing')+'.html', content=content)
+
+@login_required
+def srie_tp3_os_reco():
+    content = {
+        "form" : OSForm(),
+        "command_executed": "Waiting...",
+        "command_output": "Waiting...", 
+    }
+
+    if content["form"].validate_on_submit():
+        ip = content["form"].ip.data
+        password = content["form"].password.data
+        os.system(f'echo "{password}"')
+        content["command_executed"] = f'sudo -S nmap -O {ip}'
+        content["command_output"] = get_shell_output(content["command_executed"])
+    return render_template(url_for('blueprint.srie_tp3_os_reco')+'.html', content=content)
+
+@login_required
+def srie_tp3_ldap():
+    content = {
+        "form" : LDAPForm(),
+        "command_executed": "Waiting...",
+        "command_output": "Waiting...", 
+    }
+
+    if content["form"].validate_on_submit():
+        ip = content["form"].ip.data
+        content["command_executed"] = f'nmap -n -sV --script "ldap* and not brute" {ip}'
+        content["command_output"] = get_shell_output(content["command_executed"])
+    return render_template(url_for('blueprint.srie_tp3_ldap')+'.html', content=content)
