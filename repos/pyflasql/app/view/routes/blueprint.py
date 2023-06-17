@@ -10,7 +10,7 @@ from ...controllers.controller import index, login, register, dashboard, logout,
 from ...controllers.srie.tp1_recon_footprint.controller import srie_home, srie_tp1_recon_footprint, srie_tp1_ipaddr, srie_tp1_whois, srie_tp1_recon
 from ...controllers.srie.tp2_scanning_networks.controller import srie_tp2_scanning_networks, srie_tp2_pingaddr, srie_tp2_nmap, srie_tp2_ports, srie_tp2_nessus, srie_tp2_traceroute, srie_tp2_dns
 from ...controllers.srie.tp3_enumeration.controller import srie_tp3_enumeration, srie_tp3_banner_grabbing, srie_tp3_os_reco, srie_tp3_ldap
-from ...controllers.srie.tp4_gaining_access.controller import srie_tp4_gaining_access, srie_tp4_hydra, srie_tp4_VSFTPD
+from ...controllers.srie.tp4_gaining_access.controller import srie_tp4_gaining_access, srie_tp4_hydra, srie_tp4_VSFTPD, srie_tp4_metasploit
 from ...controllers.user_profile.controller import user_profile
 from ...controllers.toolbox.controller import toolbox_home
 from ...controllers.toolbox.wtforms.controller import toolbox_wtforms_home, toolbox_wtforms_user_reg_form, toolbox_wtforms_upload_form  
@@ -57,6 +57,7 @@ blueprint.route('/srie/tp3_enumeration/ldap', methods=['GET', 'POST'])(srie_tp3_
 blueprint.route('/srie/tp4_gaining_access/home', methods=['GET', 'POST'])(srie_tp4_gaining_access)
 blueprint.route('/srie/tp4_gaining_access/hydra', methods=['GET', 'POST'])(srie_tp4_hydra)
 blueprint.route('/srie/tp4_gaining_access/VSFTPD', methods=['GET', 'POST'])(srie_tp4_VSFTPD)
+blueprint.route('/srie/tp4_gaining_access/metasploit', methods=['GET', 'POST'])(srie_tp4_metasploit)
 
 # Toolbox
 blueprint.route('/toolbox/home', methods=['GET', 'POST'])(toolbox_home)

@@ -50,3 +50,7 @@ def srie_tp4_hydra():
 @login_required
 def srie_tp4_VSFTPD():
     return render_template(url_for('blueprint.srie_tp4_VSFTPD')+'.html')
+
+@login_required
+def srie_tp4_metasploit():
+    return render_template(url_for('blueprint.srie_tp4_metasploit')+'.html')
